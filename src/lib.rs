@@ -3,6 +3,9 @@
 // but some rules are too "annoying" or are not applicable for your case.)
 #![allow(clippy::wildcard_imports)]
 
+mod plots;
+use plots::line_and_scatter_plot;
+
 use seed::{prelude::*, *};
 
 // ------ ------
@@ -51,7 +54,12 @@ fn view(model: &Model) -> Node<Msg> {
         "This is a counter: ",
         C!["counter"],
         button![model, ev(Ev::Click, |_| Msg::Increment),],
+        div![
+            content!(line_and_scatter_plot())
+        ],
+
     ]
+    
 }
 
 // ------ ------
